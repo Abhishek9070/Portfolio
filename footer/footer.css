@@ -1,0 +1,126 @@
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background-color: rgba(7, 7, 9, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 70px 8% 30px;
+  margin-top: 120px;
+}
+
+/* Top layout */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Columns */
+.footer-col h4 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: color 0.25s ease;
+}
+
+.footer-col a:hover,
+.footer-col a:focus {
+  color: var(--accent);
+}
+
+.footer-col a:active {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.footer-col a:visited {
+  color: var(--muted);
+}
+
+.footer-col a:visited:hover,
+.footer-col a:visited:focus,
+.footer-col a:visited:active {
+  color: var(--accent);
+}
+
+/* Connect icons */
+.connect-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.connect-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  color: var(--muted);
+  background-color: rgba(139, 92, 246, 0.1);
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.connect-icons a:hover {
+  color: var(--accent);
+  background-color: rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 50px 4% 25px;
+    margin-top: 80px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .connect-icons {
+    justify-content: center;
+  }
+
+  .footer-col {
+    text-align: center;
+  }
+
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+}

@@ -1,0 +1,128 @@
+/* ================= PROJECTS SECTION ================= */
+
+.projects {
+  padding: 120px 8% 60px;
+  position: relative;
+}
+
+.projects::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: min(400px, 30vw);
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(251, 113, 133, 0.15),
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.project-category {
+  background: rgba(18, 18, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-category:hover {
+  transform: translateY(-5px);
+  border-color: rgba(251, 113, 133, 0.3);
+}
+
+.project-item {
+  margin-top: 20px;
+  background: rgba(251, 113, 133, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 3px solid #fb7185;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  background: rgba(251, 113, 133, 0.12);
+  transform: translateX(5px);
+}
+
+.project-placeholder {
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(251, 113, 133, 0.1), rgba(139, 92, 246, 0.1));
+  color: var(--muted);
+  gap: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.project-placeholder i {
+  font-size: 32px;
+  color: #fb7185;
+}
+
+.project-placeholder span {
+  font-size: 14px;
+}
+
+.project-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.project-item p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: rgba(251, 113, 133, 0.2);
+  color: #fb7185;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .projects {
+    padding: 80px 6% 40px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .project-category {
+    padding: 25px 20px;
+  }
+}
