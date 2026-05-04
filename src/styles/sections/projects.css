@@ -61,6 +61,25 @@
   transform: translateX(5px);
 }
 
+.project-list {
+  display: grid;
+  gap: 14px;
+}
+
+.project-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-item.card-interactive {
+  margin-top: 0;
+}
+
+.project-item.card-interactive:hover {
+  transform: translateX(5px);
+}
+
 .project-placeholder {
   aspect-ratio: 16/9;
   display: flex;

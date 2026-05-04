@@ -1,0 +1,243 @@
+.startup-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.22), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.22), transparent 38%),
+    linear-gradient(140deg, #05070f 10%, #0d1325 45%, #090b12 100%);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.startup-screen.closing {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.startup-text-wrap {
+  position: relative;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.startup-avatar-wrap {
+  width: clamp(120px, 22vw, 188px);
+  height: clamp(120px, 22vw, 188px);
+  border-radius: 999px;
+  padding: 4px;
+  background: linear-gradient(130deg, #00e5ff 10%, #00a6ff 55%, #4dd7ff 100%);
+  box-shadow:
+    0 0 12px rgba(0, 198, 255, 0.8),
+    0 0 48px rgba(0, 153, 255, 0.4);
+  animation: startupRingGlow 2.2s ease-in-out infinite;
+}
+
+.startup-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid rgba(7, 14, 31, 0.9);
+}
+
+.startup-text {
+  font-size: clamp(1.6rem, 5.8vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: #9ee8ff;
+  text-shadow:
+    0 0 10px rgba(0, 217, 255, 0.75),
+    0 0 34px rgba(0, 132, 255, 0.75),
+    0 0 54px rgba(32, 167, 255, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25em;
+  line-height: 1.3;
+}
+
+.startup-electric-text {
+  animation: electricFlicker 2.8s linear infinite;
+}
+
+.startup-word {
+  display: inline-block;
+  opacity: 0;
+  animation: wordFadeInUp 0.6s ease-out forwards;
+}
+
+.startup-electric-text .startup-word {
+  animation:
+    wordFadeInUp 0.6s ease-out forwards,
+    electricFlicker 2.8s linear infinite;
+}
+
+.startup-subtitle {
+  margin-top: 1rem;
+  color: rgba(240, 240, 248, 0.78);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  letter-spacing: 0.15em;
+}
+
+@keyframes startupPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes wordFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes startupRingGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px rgba(0, 198, 255, 0.8),
+      0 0 48px rgba(0, 153, 255, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(0, 220, 255, 1),
+      0 0 64px rgba(0, 133, 255, 0.65);
+  }
+}
+
+@keyframes electricFlicker {
+  0%,
+  18%,
+  22%,
+  62%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  20%,
+  60% {
+    opacity: 0.86;
+    filter: brightness(1.22);
+  }
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.home-anchor {
+  scroll-margin-top: 80px;
+}
+
+.nav-link-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.orbit-icon-card i {
+  font-size: 26px;
+}
+
+.orbit-icon-card .html {
+  color: #e44d26;
+}
+
+.orbit-icon-card .css {
+  color: #1572b6;
+}
+
+.orbit-icon-card .js {
+  color: #f7df1e;
+}
+
+.orbit-icon-card .react {
+  color: #61dafb;
+}
+
+.orbit-icon-card .cpp {
+  color: #93c5fd;
+}
+
+.orbit-icon-card .dsa {
+  color: #c4b5fd;
+}
+
+.orbit-icon-card .youtube {
+  color: #ff0000;
+}
+
+.orbit-icon-card .git {
+  color: #f05032;
+}
+
+.page-shell {
+  padding-top: 84px;
+  min-height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(6, 182, 212, 0.1), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(139, 92, 246, 0.1), transparent 35%),
+    var(--bg);
+}
+
+.page-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 45%, transparent 100%);
+}
+
+.nav-links .nav-link-btn {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 18px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.nav-links .nav-link-btn:hover,
+.nav-links .nav-link-btn.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .startup-text {
+    letter-spacing: 0.04em;
+  }
+}
