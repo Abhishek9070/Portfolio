@@ -191,6 +191,7 @@ function ProjectsSection() {
       iconClass: "fa-solid fa-chalkboard",
       previewLabel: "Open Smart Board",
       className: "project-card-small",
+      imageUrl: "/images/smartboardHome.png",
     },
     {
       title: "Mishra Blog",
@@ -201,6 +202,7 @@ function ProjectsSection() {
       iconClass: "fa-solid fa-blog",
       previewLabel: "Open Blog",
       className: "project-card-small",
+      imageUrl: "/images/blogHome.png",
     },
   ];
 
@@ -223,6 +225,7 @@ function ProjectsSection() {
               iconClass={project.iconClass}
               previewLabel={project.previewLabel}
               className={project.className}
+              imageUrl={project.imageUrl}
             />
           ))}
         </div>

@@ -13,7 +13,7 @@ export default function EducationalContentPage() {
     },
     {
       source:
-        "https://youtube.com/playlist?list=PLNPuhCAq8EQ0qwV4MqLWQ4NupGaq_a_zL&si=Gc9MT-tlwO0vj9B7",
+        "https://www.youtube.com/playlist?list=PLNPuhCAq8EQ0qwV4MqLWQ4NupGaq_a_zL",
       title: "DSA",
       description:
         "Know the technique to understand DSA.",
