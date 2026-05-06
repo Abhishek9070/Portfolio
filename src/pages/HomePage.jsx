@@ -181,22 +181,26 @@ function HeroSection() {
 }
 
 function ProjectsSection() {
-  const projectCategories = [
+  const projects = [
     {
-      id: "web-development",
-      iconClass: "fa-solid fa-globe",
-      title: "Web Development",
-      projects: [
-        {
-          title: "Smart Board",
-          description:
-            "Online smartboard for taking notes with save as image or PDF, sharing notes, login/logout, register, and Google sign-up.",
-          techStack: ["React", "Notes", "PDF Export", "Google Auth"],
-          href: "smart-board-git-main-abhishek9070s-projects.vercel.app",
-          iconClass: "fa-solid fa-chalkboard",
-          previewLabel: "Open Smart Board",
-        },
-      ],
+      title: "Smart Board",
+      description:
+        "Online smartboard for taking notes with save as image or PDF, sharing notes, login/logout, register, and Google sign-up.",
+      techStack: ["React", "Notes", "PDF Export", "Google Auth"],
+      href: "https://smart-board-git-main-abhishek9070s-projects.vercel.app",
+      iconClass: "fa-solid fa-chalkboard",
+      previewLabel: "Open Smart Board",
+      className: "project-card-small",
+    },
+    {
+      title: "Mishra Blog",
+      description:
+        "A blog platform with Appwrite backend, React frontend, React Router for navigation, Redux for state management, and CORS handling.",
+      techStack: ["React", "Appwrite", "React Router", "Redux", "CORS"],
+      href: "https://mishra-blog.vercel.app",
+      iconClass: "fa-solid fa-blog",
+      previewLabel: "Open Blog",
+      className: "project-card-small",
     },
   ];
 
@@ -209,26 +213,17 @@ function ProjectsSection() {
         </div>
 
         <div className="projects-grid">
-          {projectCategories.map((category) => (
-            <div className="project-category" key={category.id}>
-              <div className="category-header">
-                <i className={category.iconClass} />
-                <h3>{category.title}</h3>
-              </div>
-              <div className="project-list">
-                {category.projects.map((project) => (
-                  <ProjectCard
-                    key={project.title}
-                    title={project.title}
-                    description={project.description}
-                    techStack={project.techStack}
-                    href={project.href}
-                    iconClass={project.iconClass}
-                    previewLabel={project.previewLabel}
-                  />
-                ))}
-              </div>
-            </div>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              techStack={project.techStack}
+              href={project.href}
+              iconClass={project.iconClass}
+              previewLabel={project.previewLabel}
+              className={project.className}
+            />
           ))}
         </div>
       </div>

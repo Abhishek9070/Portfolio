@@ -5,13 +5,14 @@ function ProjectCard({
   href,
   iconClass = "fa-solid fa-diagram-project",
   previewLabel = "Open Project",
+  className = "",
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="project-card-link"
+      className={`project-card-link ${className}`}
       aria-label={`Open ${title}`}
     >
       <article className="project-item card-interactive">
