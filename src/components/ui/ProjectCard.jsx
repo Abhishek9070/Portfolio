@@ -17,12 +17,12 @@ function ProjectCard({
                    transition-all duration-300
                    hover:-translate-y-2 hover:shadow-blue-500/30"
       >
-        {/* Glow Effect */}
+     
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 
-                        transition duration-300 
+                        transition duration-300 -z-10
                         bg-gradient-to-r from-blue-500/10 via-cyan-400/10 to-blue-500/10 blur-xl" />
 
-        {/* Preview Section */}
+        
         <div
           className="relative h-44 w-full mb-4 rounded-xl overflow-hidden 
                      bg-[#020617] flex items-center justify-center"
@@ -41,7 +41,7 @@ function ProjectCard({
           )}
         </div>
 
-        {/* Title */}
+      
         <h4 className="text-lg font-semibold text-white mb-2">
           {title}
         </h4>
@@ -51,7 +51,7 @@ function ProjectCard({
           {description}
         </p>
 
-        {/* Tech Stack */}
+        
         <div className="flex flex-wrap gap-2 mb-4">
           {techStack.map((tech) => (
             <span
@@ -65,7 +65,6 @@ function ProjectCard({
           ))}
         </div>
 
-        {/* CTA Button */}
         <a
           href={href}
           target="_blank"

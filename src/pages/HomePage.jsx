@@ -2,7 +2,29 @@ import { useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ProjectCard from "../components/ui/ProjectCard";
 import FooterSection from "../components/layout/FooterSection";
+import emailjs from "emailjs-com";
 
+const sendEmail = (event) => {
+  event.preventDefault();
+
+  emailjs
+    .sendForm(
+       import.meta.env.VITE_EMAIL_SERVICE_ID,
+      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+      event.target,
+      import.meta.env.VITE_EMAIL_PUBLIC_KEY  
+    )
+    .then(
+      () => {
+        alert("Message sent successfully!");
+        event.target.reset();
+      },
+      (error) => {
+        console.error(error);
+        alert("Failed to send message");
+      }
+    );
+};
 export default function HomePage({ onSectionChange }) {
   const location = useLocation();
   const navigate = useNavigate();
@@ -186,8 +208,8 @@ function ProjectsSection() {
       title: "Smart Board",
       description:
         "Online smartboard for taking notes with save as image or PDF, sharing notes, login/logout, register, and Google sign-up.",
-      techStack: ["React", "Notes", "PDF Export", "Google Auth"],
-      href: "https://smart-board-git-main-abhishek9070s-projects.vercel.app",
+      techStack: ["React","Express","Mongo DB","Versal", "Notes", "PDF Export", "Google Auth"],
+      href: "https://smart-board-mishra.vercel.app",
       iconClass: "fa-solid fa-chalkboard",
       previewLabel: "Open Smart Board",
       className: "project-card-small",
@@ -216,8 +238,9 @@ function ProjectsSection() {
 
         <div className="projects-grid">
           {projects.map((project) => (
+            <div key={project.title} style={{ zIndex: 10 }}>
             <ProjectCard
-              key={project.title}
+              
               title={project.title}
               description={project.description}
               techStack={project.techStack}
@@ -227,6 +250,7 @@ function ProjectsSection() {
               className={project.className}
               imageUrl={project.imageUrl}
             />
+            </div>
           ))}
         </div>
       </div>
@@ -480,7 +504,7 @@ function ContactSection() {
           </div>
 
           <div className="contact-form-section">
-            <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+            <form className="contact-form" onSubmit={sendEmail}>
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <input type="text" id="name" name="name" required />
@@ -519,28 +543,28 @@ function ContactSection() {
                 Send Message
               </button>
             </form>
-          </div>
-        </div>
-
-        <div className="contact-stats">
-          <div className="stat-item">
-            <span className="stat-number">24h</span>
-            <span className="stat-label">Response Time</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">100+</span>
-            <span className="stat-label">Problems Solved</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">50+</span>
-            <span className="stat-label">Videos Created</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">Open</span>
-            <span className="stat-label">To Opportunities</span>
-          </div>
         </div>
       </div>
-    </section>
+
+      <div className="contact-stats">
+        <div className="stat-item">
+          <span className="stat-number">24h</span>
+          <span className="stat-label">Response Time</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-number">200+</span>
+          <span className="stat-label">Problems Solved</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-number">200+</span>
+          <span className="stat-label">Videos Created</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-number">Open</span>
+          <span className="stat-label">To Opportunities</span>
+        </div>
+      </div>
+    </div>
+    </section >
   );
 }
