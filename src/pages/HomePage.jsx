@@ -7,21 +7,26 @@ import emailjs from "emailjs-com";
 const sendEmail = (event) => {
   event.preventDefault();
 
+  const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
+  const templateID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
+
+  if (!serviceID || !templateID || !publicKey) {
+    alert("Email configuration is missing. Please set up your EmailJS credentials.");
+    console.error("Missing environment variables for EmailJS");
+    return;
+  }
+
   emailjs
-    .sendForm(
-       import.meta.env.VITE_EMAIL_SERVICE_ID,
-      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-      event.target,
-      import.meta.env.VITE_EMAIL_PUBLIC_KEY  
-    )
+    .sendForm(serviceID, templateID, event.target, publicKey)
     .then(
       () => {
-        alert("Message sent successfully!");
+        alert("Message sent successfully! I'll get back to you soon.");
         event.target.reset();
       },
       (error) => {
-        console.error(error);
-        alert("Failed to send message");
+        console.error("EmailJS Error:", error);
+        alert("Failed to send message. Please try again later.");
       }
     );
 };
@@ -506,13 +511,13 @@ function ContactSection() {
           <div className="contact-form-section">
             <form className="contact-form" onSubmit={sendEmail}>
               <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <input type="text" id="name" name="name" required />
+                <label htmlFor="from_name">Full Name</label>
+                <input type="text" id="from_name" name="from_name" required />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input type="email" id="email" name="email" required />
+                <label htmlFor="from_email">Email Address</label>
+                <input type="email" id="from_email" name="from_email" required />
               </div>
 
               <div className="form-group">
